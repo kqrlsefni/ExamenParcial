@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +29,8 @@ public class AlumnoController {
        return alumnoService.findAll();
     }
 
-    @GetMapping("findById")
-    public Optional<AlumnoModel> findById(@RequestParam Integer id) {
+    @GetMapping("findById/{id}")
+    public Optional<AlumnoModel> findById(@PathVariable Integer id) {
         return alumnoService.findById(id);
     }
 
@@ -43,8 +44,8 @@ public class AlumnoController {
         return alumnoService.update(model);
     }
 
-    @DeleteMapping("delete")
-    public Boolean delete(@RequestParam Integer id) {
+    @DeleteMapping("delete/{id}")
+    public Boolean delete(@PathVariable Integer id) {
         alumnoService.delete(id);
         return true;
     }
