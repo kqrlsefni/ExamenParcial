@@ -1,15 +1,17 @@
 package EP.ExamenParcial.service;
 
+
 import java.util.List;
-import java.util.Optional;
 
 import EP.ExamenParcial.model.AlumnoModel;
+import EP.ExamenParcial.shared.response.ResponseBase;
+import lombok.NonNull;
 
 public interface IAlumnoService {
     
-    public List<AlumnoModel> findAll();
-    public Optional<AlumnoModel> findById(Integer id);
-    public AlumnoModel add(AlumnoModel model);
-    public AlumnoModel update(AlumnoModel model);
-    public Boolean delete(Integer id);
+    public ResponseBase<List<AlumnoModel>> findAll();
+    public ResponseBase<AlumnoModel> findById(Integer id);
+    public ResponseBase<AlumnoModel> create(AlumnoModel model);
+    public ResponseBase<AlumnoModel> update(AlumnoModel model);
+    public ResponseBase<NonNull> delete(Integer id);
 }
